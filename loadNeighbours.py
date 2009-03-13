@@ -20,10 +20,10 @@ def addTile(num):
       tile = dict(dictParts)['mapid']
       newregion = Region.objects.get(id=tile)
       if function == "Left":
-        newregion.x = startregion.x-1
+        newregion.x = startregion.x+1
         newregion.y = startregion.y
       if function == "Right":
-        newregion.x = startregion.x+1
+        newregion.x = startregion.x-1
         newregion.y = startregion.y
       if function == "Up":
         newregion.x = startregion.x
