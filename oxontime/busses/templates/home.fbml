@@ -1,0 +1,19 @@
+<html><head><title>Hello</title></head>
+<body>
+<style>
+td {
+  width: 12;
+  height: 12;
+  font-size: 1pt;
+}
+td.empty {
+  background: #000000;
+}
+td.c0 {
+  background: #555555;
+}
+</style>
+
+{{ table|safe }}
+</body>
+</html>
