@@ -73,5 +73,6 @@ if __name__=="__main__":
       cursor.execute(queries[nextQuery],[])
       results = cursor.fetchall()
       for r in results:
-        print r[0], addTile(r[0]) or ''
+        result = addTile(r[0])
+        print r[0], result[0], result[1] or ''
         sleep(1)
