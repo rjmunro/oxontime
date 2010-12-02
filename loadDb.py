@@ -1,4 +1,9 @@
 #!/usr/bin/python
+""" To make this run, you need to set the environment with:
+export DJANGO_SETTINGS_MODULE=oxontime.settings
+export PYTHONPATH=/home/rjmunro/oxontime-bus-stuff
+"""
+
 from oxontime.busses.models import *
 import urllib
 import datetime
