@@ -25,7 +25,7 @@ def addTile(num):
     line=line.strip()
     if line:
       (null,vehicle,null,service,null,coords) = line.split('|')
-      x,y = coords.split(',')
+      y,x = map(int, coords.split(',')) # perverse
       bus = Bus(region=region,updated=updated,service=service,vehicle=vehicle,x=x,y=y)
       bus.save()
       busses.append((bus.service,bus.vehicle))
