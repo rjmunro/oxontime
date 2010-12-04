@@ -27,3 +27,21 @@ def home(request):
   table += "</table>\n"
   return render_to_response('home.fbml', {'table': table})
 
+def kml(request):
+    out = []
+    out.append('<?xml version="1.0" encoding="utf-8" standalone="no"?>')
+    out.append('<kml xmlns="http://www.opengis.net/kml/2.2">')
+    out.append('<Document>')
+    for region in Region.objects.all():
+        buses = region.bus_set.filter(updated=region.last_updated)
+        for bus in buses:
+            location = bus.location.transform(4326, clone=True)
+            l = tuple(bus.location)
+            out.append('<Placemark id="%d">' % bus.pk)
+            out.append('<Point>')
+            out.append('<coordinates>%f,%f</coordinates>' % tuple(bus.location.transform(4326, clone=True)))
+            out.append('</Point>')
+            out.append('</Placemark>')
+    out.append('</Document>')
+    out.append('</kml>')
+    return HttpResponse(out, mimetype='application/kml+xml')

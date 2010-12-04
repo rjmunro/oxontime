@@ -6,10 +6,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('oxontime.busses.views',
     (r'^$', 'home'), # Home page
-    (r'^(?P<id>\d+)/$', 'respond'),
-    (r'^(?P<id>\d+)/invite$', 'invite'),
-    (r'^(?P<id>\d+)/results$', 'results'),
-    (r'^(?P<id>\d+)/edit$', 'edit'),
+    (r'^kml/$', 'kml'), # Home page
 
     (r'^admin/(.*)', admin.site.root),
 )
